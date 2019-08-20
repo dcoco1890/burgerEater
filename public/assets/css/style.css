@@ -1,3 +1,7 @@
 body {
     background-color: rgba(75, 75, 105, 0.3);
+    background-image: url("../img/hamburger_01.png");
+    background-repeat: no-repeat;
+    background-size: 120px 80px;
+    background-position: center center;
 }
