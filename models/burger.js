@@ -1,21 +1,13 @@
-var orm = require("../config/orm.js");
+var Sequelize = require("sequelize");
 
-var burger = {
-    all: function(cb) {
-        orm.all("burgers", function(res) {
-            cb(res);
-        });
-    },
-    insertOne: function(cols, vals, cb) {
-        orm.insertOne("burgers", cols, vals, function(res) {
-            cb(res);
-        });
-    },
-    update: function(id, cb) {
-        orm.update("burgers", id, function(res) {
-            cb(res);
-        });
-    }
-}
+var sequelize = require("../config/connection.js");
 
-module.exports = burger;
+var Burger = sequelize.define("burger", {
+    name: Sequelize.STRING,
+    devoured: Sequelize.BOOLEAN,
+    created_at: Sequelize.DATE
+});
+
+Burger.sync();
+
+module.exports = Burger;

@@ -1,25 +1,15 @@
-// Set up MySQL connection.
-var mysql = require("mysql");
+var Sequelize = require("sequelize");
 
-
-var connection = mysql.createConnection({
-
+var sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASS, {
     host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASS,
-    database: process.env.DB_NAME,
     port: 3306,
-
-});
-
-// Make connection.
-connection.connect(function(err) {
-    if (err) {
-        console.error("error connecting: " + err.stack);
-        return;
+    dialect: "mysql",
+    pool: {
+        max: 5,
+        min: 0,
+        idle: 10000
     }
-    console.log("connected as id " + connection.threadId);
 });
 
-// Export connection for the ORM to use.
-module.exports = connection;
+
+module.exports = sequelize;
