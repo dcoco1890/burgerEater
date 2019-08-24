@@ -1,10 +1,14 @@
 var path = require("path");
+var db = require("../models");
 
 module.exports = function(app) {
 
     // index route loads view.html
     app.get("/", function(req, res) {
-        res.render("index");
+        db.Burger.findAll({}).then(answer => {
+
+            res.render("index", { Burger: answer });
+        })
     });
 
     // // cms route loads cms.html

@@ -11,6 +11,8 @@ module.exports = function(sequelize, Datatypes) {
             type: Datatypes.BOOLEAN,
             allowNull: false
         }
+    }, {
+        timestamps: false,
     });
     return Burger;
 };

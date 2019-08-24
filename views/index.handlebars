@@ -1,3 +1,36 @@
 <main>
-    <h2>Eat and Track Burgers dude</h2>
+    <div class="jumbotron">
+        <h1 class="text-center">Burger-Eater</h1>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="area">
+                    Burgers
+                    
+            {{#each Burger}}
+             <blockquote class="blockquote-reverse">
+                {{this.name}}
+             </blockquote>
+                 <footer>Created: {{this.createdAt}}</footer>
+            {{/each}}
+
+                </div>
+            </div>
+            <div class="col-sm-2">
+                 <div class="area">
+
+                 </div>
+            </div>
+          
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="area">
+                     <p>s</p>
+                     <h3>add Byrger</h3>
+                </div>
+            </div>
+        </div>
+    </div>
 </main>
