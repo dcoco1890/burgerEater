@@ -6,8 +6,10 @@ module.exports = function(app) {
     // index route loads view.html
     app.get("/", function(req, res) {
         db.Burger.findAll({}).then(answer => {
-
-            res.render("index", { Burger: answer });
+            var hbsO = {
+                Burger: answer
+            };
+            res.render("index", hbsO);
         })
     });
 
