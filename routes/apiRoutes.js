@@ -11,7 +11,7 @@ module.exports = function(app) {
             name: req.body.name,
             devoured: req.body.devoured
         }).then(answer => {
-            res.json(ans);
+            res.json(answer);
         })
     });
     app.delete("/api/burgers/:id", function(req, res) {
@@ -20,8 +20,19 @@ module.exports = function(app) {
             where: {
                 id: req.params.id
             }
-        }).then(ans => {
+        }).then(answer => {
             res.render("index", { Burger: answer });
+        })
+    });
+    app.put("/api/burgers/:id", function(req, res) {
+        db.Burger.update({
+            devoured: true
+        }, {
+            where: {
+                id: req.params.id
+            }
+        }).then(answer => {
+            res.json(answer);
         })
     })
 }

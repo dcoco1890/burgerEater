@@ -1,9 +1,23 @@
 $(document).ready(function() {
 
-    var notEaten = $("#not-devoured");
-    $(document).on("click", "button.devour", devourBurger);
+    function moveBurger(id) {
+        $.ajax({
+                method: "PUT",
+                url: "/api/burgers/" + id
+            })
+            .then(function() {
+                location.reload();
+            });
+    }
 
-    function devourBurger(id) {
+    $(".devour").on("click", function() {
+        var id = $(this).attr("data-id");
+        moveBurger(id);
+    });
+
+    function getBurgs() {
 
     }
+
+
 });
