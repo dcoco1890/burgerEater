@@ -9,7 +9,7 @@ module.exports = function(app) {
     app.post("/api/burgers", function(req, res) {
         db.Burger.create({
             name: req.body.name,
-            devoured: req.body.devoured
+            devoured: false //burgers are not eaten by default
         }).then(answer => {
             res.json(answer);
         })

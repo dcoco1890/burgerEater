@@ -46,3 +46,8 @@ li {
 .fin {
     color: darkgray;
 }
+
+#add {
+    display: none;
+    padding: 10px;
+}
