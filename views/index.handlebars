@@ -6,7 +6,7 @@
     <div class="row">
     <div class="col-sm-6">
         <div class="area" id="not-devoured">
-            Ready to Eat
+            <p id="head">Fresh Burgers!</p>
                 <ul>
                     {{#each Burger}}
                     {{#unless devoured}}
@@ -18,7 +18,8 @@
     </div>
     <div class="col-sm-6">
         <div class="area" id="devoured">
-            No Longer Eat-able
+            <p id="head">Old Burgers :(</p>
+           
                 <ul>
                     {{#each Burger}}
                     {{#if devoured}}
