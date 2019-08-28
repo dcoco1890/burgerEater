@@ -9,7 +9,8 @@ module.exports = function(sequelize, Datatypes) {
         },
         devoured: {
             type: Datatypes.BOOLEAN,
-            allowNull: false
+            defaultValue: false,
+            allowNull: false,
         }
     }, {
         timestamps: false,

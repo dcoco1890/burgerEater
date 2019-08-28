@@ -25,6 +25,7 @@ module.exports = function(app) {
         })
     });
     app.put("/api/burgers/:id", function(req, res) {
+        console.log(`eating burger #${req.params.id}`);
         db.Burger.update({
             devoured: true
         }, {
